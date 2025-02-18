@@ -291,9 +291,22 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
             const mobileMenuButton = document.querySelector('header nav .mobile-menu-button');
             const mobileMenu = document.querySelector('header nav .mobile-menu');
-           
+            
+            // FAQ functionality
+            const faqButtons = document.querySelectorAll('#faq button');
+            faqButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const answer = button.querySelector('.text-gray-600');
+                    const icon = button.querySelector('.fas');
+                    answer.classList.toggle('hidden');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+            
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
